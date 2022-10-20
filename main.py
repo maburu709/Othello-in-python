@@ -1,10 +1,8 @@
-
-# crear_tablero : None -> [[char]]
 from re import A
 
-
+# crear_tablero : None -> [[char]]
 def crear_tablero():
-    lista = [["" for i in range(0,8)] for i in range(0,8)]
+    lista = [["" for i in range(8)] for i in range(8)]
     lista[3][3] = "B"
     lista[4][3] = "N"
     lista[4][4] = "B"
@@ -81,7 +79,6 @@ def voltear(posicion, direccion, veces_desplazado, tablero):
         y += b
         tablero[x][y] = cambiar_ficha[tablero[x][y]]
 
-
 #jugar : None -> None
 def jugar():
     partida = open("partida.txt", "r")
@@ -99,9 +96,12 @@ def jugar():
         jugada = partida.readline().strip('\n')
         if sintaxis_correcta(jugada):
             coordenadas = (ord(jugada[0].upper())-65,int(jugada[1:])-1) #convierte la jugada en una coordenada del tablero
-            errores = not(jugada_valida(coordenadas, tablero, jugador_actual))
+            errores = not(jugada_valida(coordenadas, tablero, jugador_actual, True))
         else:
             errores = True
+        for i in tablero:
+            print(i)
+        print("")
         jugador_actual = cambiar_jugador[jugador_actual]
 
     partida.close()
