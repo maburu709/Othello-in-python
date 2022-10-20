@@ -1,7 +1,18 @@
-Alejandro, B
-Federico, N
-B
-D6
-E6
-D7
-E7
+Tomas,N
+Lucas,B
+N
+C4
+C3
+C2
+F4
+F5
+F6
+G7
+F7
+G4
+B2
+A1
+H3
+F8
+F3
+H4

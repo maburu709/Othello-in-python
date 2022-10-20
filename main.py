@@ -1,5 +1,3 @@
-from re import A
-
 # crear_tablero : None -> [[char]]
 def crear_tablero():
     lista = [["" for i in range(8)] for i in range(8)]
@@ -56,7 +54,7 @@ def jugada_valida(jugada, tablero, jugador_actual, modo):
 
     if tablero[x][y] == "":
         for (a,b) in vectores:
-            if  x+a in range(8) and y+b in range(8): # esto es rapido, lo juro
+            if  x+a in range(8) and y+b in range(8) and tablero[x+a][y+b] == cambiar_ficha[jugador_actual] : # esto es rapido, lo juro
                 veces_desplazado = buscar_ficha((x+a, y+b), (a,b), tablero, jugador_contrario)
                 if(veces_desplazado): 
                     pos_valida = True
@@ -99,10 +97,9 @@ def jugar():
             errores = not(jugada_valida(coordenadas, tablero, jugador_actual, True))
         else:
             errores = True
-        for i in tablero:
-            print(i)
-        print("")
         jugador_actual = cambiar_jugador[jugador_actual]
+    for i in tablero:
+        print(i)
 
     partida.close()
         
